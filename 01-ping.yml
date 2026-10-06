@@ -1,7 +1,0 @@
-- name: ping the server
-  hosts: web #which node ansible server connects with
-  tasks: #list of tasks/modules/collections
-  - name: ping the server
-    ansible.builtin.ping:
-
-

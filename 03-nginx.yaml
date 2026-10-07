@@ -1,5 +1,6 @@
 - name: install nginx and run
   hosts: web #list of nodes ansible server connecting with
+  become: yes
   tasks:  #list of tasks to be performed
   - name: install nginx
     ansible.builtin.package:     #module-package --> heterogenous
@@ -9,4 +10,4 @@
     ansible.builtin.service:   #module-service 
       name: nginx              #service name, parameter: mandatory
       state: started           #state mandatory parameter values:started, stopped, restarted, rebooted
-      
+      enabled: yes

@@ -3,7 +3,7 @@
   vars:
     COURSE: "Devops With AWS"
     TRAINER: "Siva Kumar"
-    Duration: "120 Hours"
+    DURATION: "120 Hours"
   tasks:
   - name: vars play level
     ansible.builtin.debug:

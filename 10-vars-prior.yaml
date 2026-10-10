@@ -1,0 +1,23 @@
+- name: print variables on priority
+  hosts: web
+  vars:  #play-level
+    COURSE: "play-level"
+  vars_files:  #var file
+  - vars.yaml
+  vars_prompt: #vars_prompt
+  - name: COURSE
+    prompt: please enter course name
+  tasks:
+  - name: print variable based on priority
+    vars:
+      COURSE: "task-level"
+    ansible.builtin.debug:
+    msg: "Hi, I'm learning course: {{ COURSE }}"
+
+#priority
+#1)arguments passed to variables on terminal
+#2)task-level variables
+#3)variables from file
+#4)variables from prompt
+#5)variables in play-level
+#6)variables in inventory file

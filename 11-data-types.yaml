@@ -1,0 +1,28 @@
+- name: devops course details
+  hosts: local
+  connection: local  #ansible server will ask username and password when run script inside server
+  vars:
+    course: "devops" #string
+    duration: 120   #num or int
+    topics: #list - 
+    - aws
+    - git
+    - linux
+    - shell
+    live: true  #boolean -true/false
+    tools: #map/dictionary
+      ci: jenkins  #key: value pairs
+      cm: ansible
+      cloud: aws
+      aws: #list inside map
+      - ec2
+      - s3
+      - r53
+      - lamda
+  tasks:
+  - name: print the course details
+    ansible.builtin.debug:
+    - msg: "Hi, I'm learning course: {{ course }}, duration: {{ duration }}, topics:{{ topics }},
+            live: {{ live }}, tools : {{ tools }}"
+            
+
